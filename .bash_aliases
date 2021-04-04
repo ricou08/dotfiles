@@ -18,4 +18,7 @@ alias syncserv='rsync -av -e "ssh -p 50024"'
 
 alias dotfiles='/usr/bin/git --git-dir=/Users/eric/.dotfiles/ --work-tree=/Users/eric'
 alias dotf='/usr/bin/git --git-dir=/Users/eric/.dotfiles/ --work-tree=/Users/eric'
-
+alias dotfs='dotf status'
+alias dotfa='dotf add -u'
+alias dotfc='dotf  commit -m'
+alias dotfp='dotf push origin macbookpro'
