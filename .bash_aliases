@@ -15,4 +15,7 @@ alias v='sudo vim'
 alias taille='sudo du -h --max-depth=0'
 alias tailles='sudo du -h --max-depth=1 | sort -hr'
 alias syncserv='rsync -av -e "ssh -p 50024"'
+
 alias dotfiles='/usr/bin/git --git-dir=/Users/eric/.dotfiles/ --work-tree=/Users/eric'
+alias dotf='/usr/bin/git --git-dir=/Users/eric/.dotfiles/ --work-tree=/Users/eric'
+

@@ -1,0 +1,21 @@
+{
+    "bridge": {
+        "prefix": "bridge",
+        "body": [
+            "Bridge ${1:example}:bridge:id \"${3:Bridge Label}\" [ ${4:config=\"example\"} ] {",
+            "\tThing ${1:example}:thing:id \"${6:Thing Label}\" [ ${7:config=\"example\"} ]",
+            "}"
+        ],
+        "description": "Create a generic openHAB Bridge"
+    },
+    "thing": {
+        "prefix": "thing",
+        "body": "Thing ${1:example:thing:id} \"${2:Thing Label}\" [ ${3:config=\"example\"} ]",
+        "description": "Generic openHAB Thing"
+    },
+    "item-in-sitemap": {
+        "prefix": "item-in-sitemap",
+        "body": "${1|Chart,Colorpicker,Default,Frame,Group,Image,Mapview,Selection,Setpoint,Slider,Switch,Text,Video,Webview|} item=${2:Item_ID} label=\"${3:Item Label}\" icon=\"${3:icon}\"",
+        "description": "Generic openHAB Item snippet to put in *.sitemap"
+    }
+}
