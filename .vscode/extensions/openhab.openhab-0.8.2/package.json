@@ -1,0 +1,380 @@
+{
+	"name": "openhab",
+	"displayName": "openHAB",
+	"description": "Robust tool for openHAB textual configurations. Includes code snippets, syntax highlighting, language server integration and more.",
+	"version": "0.8.2",
+	"publisher": "openhab",
+	"icon": "openhab.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/openhab/openhab-vscode.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"engines": {
+		"vscode": "^1.37.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Snippets",
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:openhab.searchCommunity",
+		"onCommand:openhab.openConsole",
+		"onCommand:openhab.basicUI",
+		"onCommand:openhab.command.refreshEntry",
+		"onCommand:openhab.command.copyName",
+		"onCommand:openhab.command.items.copyState",
+		"onCommand:openhab.command.items.addRule",
+		"onCommand:openhab.command.items.addToSitemap",
+		"onCommand:openhab.command.things.docs",
+		"onCommand:openhab.command.things.copyUID",
+		"onCommand:openhab.command.things.addItems",
+		"onLanguage:openhab",
+		"workspaceContains:services/addons.cfg",
+		"workspaceContains:services/runtime.cfg",
+		"workspaceContains:items/*.items",
+		"workspaceContains:sitemaps/*.sitemap",
+		"workspaceContains:things/*.things",
+		"workspaceContains:rules/*.rules",
+		"workspaceContains:transform/*.map",
+		"workspaceContains:transform/*.js",
+		"workspaceContains:automation/jsr223/*"
+	],
+	"main": "./client/out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "openhab.basicUI",
+				"title": "openHAB: Open Basic UI",
+				"icon": {
+					"light": "./images/oh_color.svg",
+					"dark": "./images/oh.svg"
+				}
+			},
+			{
+				"command": "openhab.command.copyName",
+				"title": "Copy Name"
+			},
+			{
+				"command": "openhab.command.items.copyState",
+				"title": "Copy State"
+			},
+			{
+				"command": "openhab.command.items.addRule",
+				"title": "Create a Rule"
+			},
+			{
+				"command": "openhab.command.items.addToSitemap",
+				"title": "Insert into Sitemap"
+			},
+			{
+				"command": "openhab.command.refreshEntry",
+				"title": "Refresh",
+				"icon": {
+					"light": "resources/light/refresh.svg",
+					"dark": "resources/dark/refresh.svg"
+				}
+			},
+			{
+				"command": "openhab.command.things.addItems",
+				"title": "Create Items from Channels",
+				"icon": {
+					"light": "resources/light/arrow_right.svg",
+					"dark": "resources/dark/arrow_right.svg"
+				}
+			},
+			{
+				"command": "openhab.command.things.copyUID",
+				"title": "Copy UID"
+			},
+			{
+				"command": "openhab.command.things.docs",
+				"title": "Binding documentation",
+				"icon": {
+					"light": "resources/light/http.svg",
+					"dark": "resources/dark/http.svg"
+				}
+			},
+			{
+				"command": "openhab.openConsole",
+				"title": "openHAB: Open openHAB console"
+			},
+			{
+				"command": "openhab.searchCommunity",
+				"title": "openHAB: Search in Community Forum"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "openHAB Configuration",
+			"properties": {
+				"openhab.host": {
+					"type": [
+						"string"
+					],
+					"default": "openhabianpi",
+					"description": "Specifies the URL or IP address for the openHAB preview. (Use 'localhost' when developing locally)"
+				},
+				"openhab.itemCasing": {
+					"type": "string",
+					"default": "camel",
+					"enum": [
+						"camel",
+						"snake"
+					],
+					"markdownDescription": "Choose how the `Create Items from Channels` command generates Item names. Use `camel` for `CamelCase` or `snake` for `Upper_Snake_Case`."
+				},
+				"openhab.karafCommand": {
+					"type": [
+						"string"
+					],
+					"default": "ssh openhab@%openhabhost% -p 8101",
+					"description": "Directly log into openHAB console. Note that this option is available only if you exposed openHAB console."
+				},
+				"openhab.password": {
+					"type": [
+						"string"
+					],
+					"default": "",
+					"description": "(optional) Specifies the Basic Auth password for accessing the openHAB preview/REST API.\nPlease leave this parameter EMPTY when you are using an api token in openHAB 3!"
+				},
+				"openhab.port": {
+					"type": [
+						"number",
+						"null"
+					],
+					"default": 8080,
+					"description": "Specifies the port for the openHAB preview."
+				},
+				"openhab.remoteLspEnabled": {
+					"type": [
+						"boolean"
+					],
+					"default": true,
+					"description": "Enables communication with Language Server of openHAB instance.\nIf you are facing connection problems make sure to connect your config folder through a dedicated network drive."
+				},
+				"openhab.remoteLspPort": {
+					"type": [
+						"number",
+						"null"
+					],
+					"default": 5007,
+					"description": "Specifies the port where openHAB is running its Language Server."
+				},
+				"openhab.sitemapPreviewUI": {
+					"type": [
+						"string"
+					],
+					"default": "basicui",
+					"description": "This parameter is deprecated and will be removed with the next major update."
+				},
+				"openhab.useRestApi": {
+					"type": "boolean",
+					"default": true,
+					"description": "Connects to openHAB REST API if set to true. If not, Items tree view and things tree view are disabled."
+				},
+				"openhab.username": {
+					"type": [
+						"string"
+					],
+					"default": "",
+					"description": "(optional) Specifies the Basic Auth username for accessing the openHAB preview/REST API.\nPlease use this parameter for the API TOken too on openHAB 3."
+				}
+			}
+		},
+		"grammars": [
+			{
+				"language": "openhab",
+				"scopeName": "source.openhab",
+				"path": "./meta/openhab.tmLanguage.json"
+			}
+		],
+		"iconThemes": [
+			{
+				"id": "openhab",
+				"label": "openHAB",
+				"path": "./fileicons/openhab-icon-theme.json"
+			}
+		],
+		"keybindings": [
+			{
+				"when": "resourceLangId == openhab",
+				"command": "openhab.basicUI",
+				"key": "ctrl+alt+o",
+				"mac": "cmd+alt+o"
+			}
+		],
+		"languages": [
+			{
+				"id": "openhab",
+				"aliases": [
+					"openHAB"
+				],
+				"extensions": [
+					".rules",
+					".script",
+					".items",
+					".sitemap",
+					".things",
+					".persist"
+				],
+				"configuration": "./meta/language-configuration.json"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"when": "resourceLangId == openhab",
+					"command": "openhab.basicUI",
+					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "openhab.command.copyName",
+					"when": "view == openhabItems"
+				},
+				{
+					"command": "openhab.command.copyName",
+					"when": "view == openhabThings"
+				},
+				{
+					"command": "openhab.command.items.addRule",
+					"when": "view == openhabItems"
+				},
+				{
+					"command": "openhab.command.items.addToSitemap",
+					"when": "view == openhabItems"
+				},
+				{
+					"command": "openhab.command.items.copyState",
+					"when": "view == openhabItems && viewItem != statelessItem && viewItem != statelessGroup"
+				},
+				{
+					"command": "openhab.command.things.addItems",
+					"when": "view == openhabThings"
+				},
+				{
+					"command": "openhab.command.things.addItems",
+					"when": "view == openhabThings",
+					"group": "inline"
+				},
+				{
+					"command": "openhab.command.things.copyUID",
+					"when": "view == openhabThings"
+				},
+				{
+					"command": "openhab.command.things.docs",
+					"when": "view == openhabThings && viewItem == thing"
+				},
+				{
+					"command": "openhab.command.things.docs",
+					"when": "view == openhabThings && viewItem == thing",
+					"group": "inline"
+				}
+			],
+			"view/title": [
+				{
+					"command": "openhab.command.refreshEntry",
+					"when": "view == openhabItems",
+					"group": "navigation"
+				},
+				{
+					"command": "openhab.command.refreshEntry",
+					"when": "view == openhabThings",
+					"group": "navigation"
+				}
+			]
+		},
+		"snippets": [
+			{
+				"language": "openhab",
+				"path": "./snippets/openhab.json"
+			},
+			{
+				"language": "openhab",
+				"path": "./snippets/openhab_items.json"
+			},
+			{
+				"language": "openhab",
+				"path": "./snippets/openhab_rules.json"
+			},
+			{
+				"language": "openhab",
+				"path": "./snippets/openhab_rules_designpattern.json"
+			},
+			{
+				"language": "openhab",
+				"path": "./snippets/openhab_rules_typeconversions.json"
+			},
+			{
+				"language": "openhab",
+				"path": "./snippets/openhab_sitemaps.json"
+			}
+		],
+		"views": {
+			"openhab": [
+				{
+					"id": "openhabItems",
+					"name": "Items",
+					"when": "config.openhab.useRestApi == true"
+				},
+				{
+					"id": "openhabThings",
+					"name": "Things",
+					"when": "config.openhab.useRestApi == true"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "openhab",
+					"title": "openHAB",
+					"icon": "images/oh.svg"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"build": "npm run clean:out && npm install && npm run compile && npm run test",
+		"clean:node_modules": "rimraf client/node_modules && rimraf serverJS/node_modules",
+		"clean:out": "rimraf client/out && rimraf serverJS/out",
+		"compile": "tsc -b",
+		"deploy": "vsce publish --yarn",
+		"package": "npm run build && vsce package",
+		"postinstall": "cd client && npm install && cd ../serverJS && npm install && cd ..",
+		"pruneProduction": "cd client && npm prune --production && cd ../serverJS && npm prune --production && cd ..",
+		"publish": "npm run build && vsce publish",
+		"test": "cd client && npm test && cd ../serverJS && npm test && cd ..",
+		"test-compile": "tsc -p ./",
+		"vscode:prepublish": "npm run webpack",
+		"watch": "tsc -b -w",
+		"webpack": "webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./serverJS/webpack.config.js",
+		"webpack-dev": "webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./serverJS/webpack.config.js"
+	},
+	"devDependencies": {
+		"@types/form-data": "^2.2.1",
+		"@types/lodash": "^4.14.167",
+		"@types/node": "^8.10.66",
+		"@types/request": "^2.48.5",
+		"@types/request-promise-native": "^1.0.15",
+		"@typescript-eslint/eslint-plugin": "^4.13.0",
+		"@typescript-eslint/parser": "^4.13.0",
+		"eslint": "^7.18.0",
+		"eslint-config-prettier": "^7.1.0",
+		"merge-options": "^1.0.1",
+		"request-promise-native": "^1.0.9",
+		"rimraf": "^3.0.2",
+		"ts-loader": "^6.2.2",
+		"typescript": "^3.9.7",
+		"webpack": "^4.46.0",
+		"webpack-cli": "^3.3.12"
+	},
+	"__metadata": {
+		"id": "51cb7751-0f7a-43e5-8018-d57d64487f8c",
+		"publisherId": "aa75ff3b-d2f3-4a8a-878d-f00e187458d4",
+		"publisherDisplayName": "openHAB"
+	}
+}
