@@ -8,6 +8,7 @@ alias ld='ls -l --color| grep ^d'
 alias lf='ll -p --color| grep -v /'
 alias grep='grep --color=auto'
 alias cd..='cd ..'
+
  
 # Some common shortcuts for tools
 alias j='jobs'
@@ -35,5 +36,9 @@ alias sstatus='systemctl status'
 # Aliases pour log openhab
 alias openhabLog='tail -f /home/eric/docker/openhab/data/userdata/logs/openhab.log'
 alias openhabEvents='tail -f /home/eric/docker/openhab/data/userdata/logs/events.log'
+
+# Aliases pour pour les commandes git des dotfiles
 alias dotfiles='/usr/bin/git --git-dir=/home/eric/.dotfiles/ --work-tree=/home/eric'
-alias dotfiles='/usr/bin/git --git-dir=/home/eric/.dotfiles/ --work-tree=/home/eric'
+
+# colorisation de cat en fonction du language -> plugin zsh
+alias cat='ccat'
