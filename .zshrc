@@ -104,5 +104,6 @@ if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
+fpath=(~/.zsh $fpath)
 
 screenfetch
