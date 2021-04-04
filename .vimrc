@@ -25,4 +25,3 @@ set shiftwidth=4    " Indents will have a width of 4
 set noexpandtab   " Always uses tabs instead of space characters (noet).
 set autoindent    " Copy indent from current line when starting a new line (ai).
 
-" test
