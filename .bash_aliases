@@ -39,6 +39,11 @@ alias openhabEvents='tail -f /home/eric/docker/openhab/data/userdata/logs/events
 
 # Aliases pour pour les commandes git des dotfiles
 alias dotfiles='/usr/bin/git --git-dir=/home/eric/.dotfiles/ --work-tree=/home/eric'
+alias dotf='dotfiles'
+alias dotfs='dotf status'
+alias dotfa='dotf add -u'
+alias dotfc='dotf  commit -m'
+alias dotfp='dotf push origin serveur'
 
 # colorisation de cat en fonction du language -> plugin zsh
 alias cat='ccat'
