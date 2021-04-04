@@ -1,0 +1,4 @@
+#afficher toutes les fenetres
+"xte 'key F12'"
+   m:0x0 + b:12 + release
+#	  m:0x0 + b:2 + release
