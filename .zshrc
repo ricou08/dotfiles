@@ -72,6 +72,8 @@ plugins=(git rsync sudo zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+fpath=(~/.zsh $fpath)
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
