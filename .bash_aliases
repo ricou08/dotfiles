@@ -28,3 +28,12 @@ alias sstart='sudo systemctl start'
 alias sstop='sudo systemctl stop'
 alias srestart='systemctl restart'
 alias dotfiles='/usr/bin/git --git-dir=/home/eric/.dotfiles/ --work-tree=/home/eric'
+
+
+# Aliases git dotfiles
+alias dotfiles='/usr/bin/git --git-dir=/home/eric/.dotfiles/ --work-tree=/home/eric'
+alias dotf='dotfiles'
+alias dotfs='dotf status'
+alias dotfa='dotf add -u'
+alias dotfc='dotf  commit -m'
+alias dotfp='dotf push origin desktop'
