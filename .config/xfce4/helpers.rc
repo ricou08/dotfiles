@@ -1,0 +1,5 @@
+FileManager=nautilus
+MailReader=thunderbird
+WebBrowser=firefox
+TerminalEmulator=custom-TerminalEmulator
+

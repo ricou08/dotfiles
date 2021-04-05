@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>printer</icon>
+	<name>Imprimer pdf</name>
+	<unique-id>1612689019011590-1</unique-id>
+	<command>lp %f</command>
+	<description>Lance directement l&apos;impression d&apos;un document pdf</description>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>thunderbird</icon>
+	<name>Envoyer relevé activité</name>
+	<unique-id>1612689261462952-2</unique-id>
+	<command>thunderbird -compose &quot;to=&apos;cynthia.deparrois@fiducial.net&apos;,attachment=%f,subject=&apos;%f&apos;,body=&apos;Bonjour,&lt;br&gt;&lt;br&gt; Veuillez trouvez, en pièce jointe, le relevé d&apos;activité prévisionnel concernant Mme Legriffon Delphine pour le mois en cours.&lt;br&gt;&lt;br&gt; Cordialement,&lt;br&gt;Eric Luchetta&apos;&quot;</command>
+	<description>Nouvel e-mail avec un fichier en piece jointe pour la fiduciale sociale</description>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>Terminal</icon>
+	<name>Ouvrir dans un terminal</name>
+	<unique-id>1606051876099764-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Ouvre un terminal dans le dossier sélectionné</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>folder</icon>
+	<name>Ouvrir en tant qu&apos;utilisateur root</name>
+	<unique-id>1606051876100052-2</unique-id>
+	<command>pkexec thunar %F</command>
+	<description>Ouvre le dossier avec les privilèges de l&apos;administrateur</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>emblem-symbolic-link</icon>
+	<name>Créer un lien</name>
+	<unique-id>1606051876100348-3</unique-id>
+	<command>ln -s %f  &apos;Link to %n&apos;</command>
+	<description>Créer un lien symbolique pour chaque élément sélectionné</description>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon>gnome-run</icon>
+	<name>Vérifier le SHA256</name>
+	<unique-id>1606051876100388-4</unique-id>
+	<command>mint-sha256sum %f</command>
+	<description>Calcule la signature SHA256 pour le fichier sélectionné.</description>
+	<patterns>*.iso;*.ISO</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>gtk-find</icon>
+	<name>Chercher</name>
+	<unique-id>1606051876100720-5</unique-id>
+	<command>catfish %f</command>
+	<description>Rechercher des fichiers</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+</actions>
