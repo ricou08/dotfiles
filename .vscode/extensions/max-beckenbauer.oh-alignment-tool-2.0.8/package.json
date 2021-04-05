@@ -1,0 +1,134 @@
+{
+	"name": "oh-alignment-tool",
+	"displayName": "openHAB Alignment Tool",
+	"version": "2.0.8",
+	"publisher": "max-beckenbauer",
+	"contributors": [
+		"Mark Hilbush"
+	],
+	"description": "Tool to format and indent openHAB files. At the moment only item and sitemap files can be formatted.",
+	"author": {
+		"name": "Maximilian Beckenbauer",
+		"email": "max.bec92@gmail.com",
+		"url": "https://github.com/MaxBec/openHAB-Alignment-Tool"
+	},
+	"categories": [
+		"Other",
+		"Formatters",
+		"Linters"
+	],
+	"icon": "images/logo.png",
+	"repository": {
+		"url": "https://github.com/MaxBec/openHAB-Alignment-Tool",
+		"type": "git"
+	},
+	"bugs": {
+		"url": "https://github.com/MaxBec/openHAB-Alignment-Tool/issues",
+		"email": "max.bec92@gmail.com"
+	},
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"license": "EPL-2.0",
+	"activationEvents": [
+		"onLanguage:openhab"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.insert-item-generic",
+				"category": "openHAB Alignment",
+				"title": "Insert Item"
+			},
+			{
+				"command": "extension.insert-item-switch",
+				"category": "openHAB Alignment",
+				"title": "Insert Switch Item"
+			},
+			{
+				"command": "extension.insert-item-dimmer",
+				"category": "openHAB Alignment",
+				"title": "Insert Dimmer Item"
+			},
+			{
+				"command": "extension.insert-item-string",
+				"category": "openHAB Alignment",
+				"title": "Insert String Item"
+			},
+			{
+				"command": "extension.insert-item-number",
+				"category": "openHAB Alignment",
+				"title": "Insert Number Item"
+			},
+			{
+				"command": "extension.insert-item-datetime",
+				"category": "openHAB Alignment",
+				"title": "Insert DateTime Item"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "openHAB Alignment Tool",
+			"properties": {
+				"oh-alignment-tool.preserveWhitespace": {
+					"type": "boolean",
+					"default": false,
+					"description": "Preserves any leading whitespace when reformatting an item."
+				},
+				"oh-alignment-tool.newLineAfterItem": {
+					"type": "boolean",
+					"default": false,
+					"description": "Choose if you want to have a new line inserted after each item."
+				},
+				"oh-alignment-tool.formatStyle": {
+					"type": "string",
+					"default": "Column",
+					"enum": [
+						"Column",
+						"ChannelColumn",
+						"Multiline"
+					],
+					"enumDescriptions": [
+						"Formats the files in a column-style. E.g. in an items file each item is one line separated by tabs.",
+						"Formats the files in a column-style with each channel parameter in a new line. E.g. in an items file each part of the channel configuration is written in a new line.",
+						"Formats the files in a multiline-style. E.g. in an items file each part of an item is written in a new line."
+					]
+				},
+				"oh-alignment-tool.minimumIndentAmount": {
+					"type": "number",
+					"default": 4,
+					"description": "Minimum separation of thing or item parts."
+				},
+				"oh-alignment-tool.enableBetaFeatures": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable beta features like sitemap formatting or thing file formatting."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.17.21",
+		"@types/vscode": "^1.40.0",
+		"glob": "^7.1.6",
+		"mocha": "^6.2.3",
+		"tslint": "^5.20.1",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	},
+	"__metadata": {
+		"id": "68b39efc-0dc4-4ed1-b0c6-bf0f7c4e74f7",
+		"publisherId": "c2d7b446-7662-493f-a0a0-3b6bd4f6a9e0",
+		"publisherDisplayName": "Max Beckenbauer"
+	}
+}
