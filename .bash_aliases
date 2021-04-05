@@ -37,3 +37,7 @@ alias dotfs='dotf status'
 alias dotfa='dotf add -u'
 alias dotfc='dotf  commit -m'
 alias dotfp='dotf push origin desktop'
+
+# colorisation de cat en fonction du language -> plugin zsh
+alias cat='ccat'
+
