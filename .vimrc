@@ -12,12 +12,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
 Plug 'aquach/vim-mediawiki-editor'
 
+" Color-schemes
+    Plug 'morhetz/gruvbox'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-
+set nocompatible
 set hlsearch                                                                                                               
 syntax enable
+filetype plugin on
 set number
 highlight LineNr ctermfg=white ctermbg=darkgray
 highlight CursorLineNr ctermfg=yellow ctermbg=darkgray
